@@ -27,6 +27,7 @@ Cette fonctionnalité est **optionnelle**, **locale** et n’impacte pas la cré
 - Les créneaux sont ensuite affichés dans le calendrier FullCalendar
 
 ---
+
 ![alt text](image.png)
 
 ### Installation
