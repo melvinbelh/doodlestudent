@@ -1,15 +1,38 @@
-# Remote meetings planning
+# Web Engineering – Projet Angular 
 
-This project is used in a course on the *ops* part at the [University of Rennes](https://www.univ-rennes1.fr/), France. It is a kind of doodle clone developed in so-called "native cloud" technologies in order to allow students to work on a continuous deployment chain in a containerized environment. Among the feature, the application automatically initializes a pad for the meeting and a chat room for the meeting participants.
+## Présentation
 
-- The [back](https://github.com/barais/doodlestudent/tree/main/api) is developed using the [quarkus.io](https://quarkus.io/) framework. 
-- The [front](https://github.com/barais/doodlestudent/tree/main/front) is developed in [angular](https://angular.io/) using the [primeng](https://www.primefaces.org/primeng/)  angular UI component library and the [fullcalendar](https://fullcalendar.io/) graphical component.
+Une fonctionnalité supplémentaire a été ajoutée : **l’import local d’un calendrier iCalendar (.ics)** afin d’afficher les créneaux déjà occupés comme aide visuelle lors du choix des dates.
 
-A demo of the application is available [here](https://doodle.diverse-team.fr/).
+---
 
-Three videos (in french) are available. They present:
-- the [main application feature](https://drive.google.com/file/d/1GQbdgq2CHcddTlcoHqM5Zc8Dw5o_eeLg/preview), 
-- its [architecture](https://drive.google.com/file/d/1l5UAsU5_q-oshwEW6edZ4UvQjN3-tzwi/preview) 
-- and a [short code review](https://drive.google.com/file/d/1jxYNfJdtd4r_pDbOthra360ei8Z17tX_/preview) .
+## Fonctionnalité ajoutée : import ICS
 
-For french native speaker that wants to follow the course. The course web page is available [here](https://hackmd.diverse-team.fr/s/SJqu5DjSD).
+### Objectif
+
+Permettre à l’utilisateur d’importer un fichier **.ics (iCalendar)** depuis son poste afin de :
+- lire les événements du calendrier
+- identifier les créneaux occupés
+- les afficher visuellement dans le calendrier lors de l’étape de sélection des dates
+
+Cette fonctionnalité est **optionnelle**, **locale** et n’impacte pas la création du sondage.
+
+### Intégration
+
+- Étape concernée : **Étape 2 – Choix de la date**
+- Un composant dédié permet :
+  - la sélection d’un fichier `.ics`
+  - l’analyse du contenu
+  - la transformation en créneaux occupés
+- Les créneaux sont ensuite affichés dans le calendrier FullCalendar
+
+---
+![alt text](image.png)
+
+### Installation
+
+```bash
+cd front
+npm install
+npm start
+```
