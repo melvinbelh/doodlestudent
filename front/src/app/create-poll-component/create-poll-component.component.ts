@@ -9,6 +9,7 @@ import { CalendarOptions, EventInput } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import timeGridPlugin from '@fullcalendar/timegrid';
+import { BusyInterval } from '../services/calendrier-import.service';
 
 /*FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -46,6 +47,12 @@ export class CreatePollComponentComponent implements OnInit {
   hasics = false;
   loadics = false;
   ics: string;
+  
+  /**
+   * Indisponibilités importées depuis un fichier .ics local.
+   */
+
+  busyFromIcs: BusyInterval[] = [];
 
   @ViewChild('calendar') set content(content: FullCalendarComponent) {
     if (content) { // initially setter gets called with undefined
@@ -201,6 +208,11 @@ export class CreatePollComponentComponent implements OnInit {
 
 
 
+  }
+
+  onBusyChanged(busy: BusyInterval[]) {
+    this.busyFromIcs = busy ?? [];
+    console.log('[ICS local] busy intervals:', this.busyFromIcs.length);
   }
 
   nextPage(): void {

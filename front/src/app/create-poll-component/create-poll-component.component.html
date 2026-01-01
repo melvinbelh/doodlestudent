@@ -74,6 +74,8 @@
             <input #mail="ngModel" id="ics" type="text"  pInputText (change)="getICS()" [(ngModel)]="ics">
           </span>
         </div>
+
+        <app-ics-import (busyChanged)="onBusyChanged($event)"></app-ics-import>
       </div>
 
             <full-calendar #calendar [options]="options"></full-calendar>

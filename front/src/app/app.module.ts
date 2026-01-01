@@ -22,6 +22,7 @@ import {InputTextModule} from 'primeng/inputtext';
 import {SelectButtonModule} from 'primeng/selectbutton';
 import {MenubarModule} from 'primeng/menubar';
 import {CheckboxModule} from 'primeng/checkbox';
+import { IcsImportComponent } from './components/ics-import/ics-import.component';
 
 import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin
 import interactionPlugin from '@fullcalendar/interaction'; // a plugin
@@ -44,6 +45,7 @@ import { ShowCommentsComponent } from './show-comments/show-comments.component';
 registerLocaleData(localeFr, 'fr');
 @NgModule({
   declarations: [
+    IcsImportComponent,
     AppComponent,
     CardSmallComponentComponent,
     HomeComponentComponent,

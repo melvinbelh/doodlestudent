@@ -1,0 +1,27 @@
+<div class="ics-box">
+  <div class="ics-title">Importer un calendrier (uniquement en .ics)</div>
+  <div class="ics-subtitle">
+    Import local iCalendar : affichage des créneaux déjà occupés.
+  </div>
+
+  <div class="ics-actions">
+    <input type="file" accept=".ics" (change)="onFileSelected($event)" />
+    <button type="button" class="btn-clear" (click)="clear()" [disabled]="loading || busy.length === 0">
+      Réinitialiser
+    </button>
+  </div>
+
+  <div class="ics-status" *ngIf="loading">Import en cours…</div>
+  <div class="ics-error" *ngIf="error">{{ error }}</div>
+
+  <div class="ics-summary" *ngIf="!loading && !error">
+    <strong>{{ busy.length }}</strong> événement(s) importé(s).
+  </div>
+
+  <div class="ics-list" *ngIf="busy.length > 0">
+    <div class="ics-item" *ngFor="let b of busy">
+      <div class="ics-item-title">{{ b.summary || 'Occupé' }}</div>
+      <div class="ics-item-time">{{ format(b.start) }} → {{ format(b.end) }}</div>
+    </div>
+  </div>
+</div>

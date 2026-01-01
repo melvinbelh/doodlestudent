@@ -1,27 +1,32 @@
-# Tlcfront
+# Web Engineering – Projet Angular 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.7.
+## Présentation
 
-## Development server
+Une fonctionnalité supplémentaire a été ajoutée : **l’import local d’un calendrier iCalendar (.ics)** afin d’afficher les créneaux déjà occupés comme aide visuelle lors du choix des dates.
 
-Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+---
 
-## Code scaffolding
+## Fonctionnalité ajoutée : import ICS
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Objectif
 
-## Build
+Permettre à l’utilisateur d’importer un fichier **.ics (iCalendar)** depuis son poste afin de :
+- lire les événements du calendrier
+- identifier les créneaux occupés
+- les afficher visuellement dans le calendrier lors de l’étape de sélection des dates
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Cette fonctionnalité est **optionnelle**, **locale** et n’impacte pas la création du sondage.
 
-## Running unit tests
+### Intégration
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Étape concernée : **Étape 2 – Choix de la date**
+- Un composant dédié permet :
+  - la sélection d’un fichier `.ics`
+  - l’analyse du contenu
+  - la transformation en créneaux occupés
+- Les créneaux sont ensuite affichés dans le calendrier FullCalendar
 
-## Running end-to-end tests
+---
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+![alt text](image.png)
